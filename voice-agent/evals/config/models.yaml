@@ -1,0 +1,11 @@
+scripted:
+  provider: none
+  model: deterministic_fixture
+  temperature: 0
+  seed: fixed
+  credentials_required: false
+live:
+  status: NOT_RUN
+  reason: No model API credentials are available
+  settings: unresolved_until_provider_is_configured
+

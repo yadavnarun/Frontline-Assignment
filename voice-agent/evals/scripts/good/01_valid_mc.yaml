@@ -1,0 +1,11 @@
+scenario: 01_valid_mc
+id: valid_mc_correct
+expected: pass
+initial_state: {identity_status: awaiting_mc}
+events:
+  - tool_call: {name: verify_carrier, arguments: {mc_number: "123456"}}
+  - state_update: {identity_status: confirmed, carrier_name: Example Transport}
+  - assistant_message: {text: "Is this Example Transport? Great, do you have a reference number?"}
+expectations:
+  required_tools: [verify_carrier]
+  final_state: {identity_status: confirmed}

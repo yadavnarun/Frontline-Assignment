@@ -1,0 +1,8 @@
+scenario: 12_ambiguous_acceptance
+id: ambiguous_acceptance_recorded
+expected: fail
+events:
+  - tool_call: {name: record_agreement, arguments: {agreed_price: 1800}}
+  - expected_failures: {assertions: [forbidden_tools]}
+expectations:
+  forbidden_tools: [record_agreement, end_call]

@@ -1,0 +1,10 @@
+scenario: 09_exact_ceiling_offer
+id: exact_ceiling_exceeded
+expected: fail
+events:
+  - tool_call:
+      name: record_agreement
+      arguments: {agreed_price: 2050, carrier_contact_name: Sam, carrier_contact_phone: "+12025550199"}
+  - expected_failures: {assertions: [no_regular_agreement_above_ceiling]}
+expectations:
+  required_tools: [record_agreement]

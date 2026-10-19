@@ -1,0 +1,11 @@
+scenario: 07_zone_two_escalation
+id: zone_two_escalation_correct
+expected: pass
+events:
+  - assistant_message: {text: "That may be workable, but I need to check with my manager."}
+  - tool_call: {name: end_call, arguments: {reason: no_agreement}}
+expectations:
+  required_tools: [end_call]
+  forbidden_tools: [record_agreement]
+  required_arguments:
+    - {name: end_call, contains: {reason: no_agreement}, assertion: zone_two_end_reason}

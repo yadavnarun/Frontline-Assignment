@@ -1,0 +1,20 @@
+identity_status: confirmed
+carrier_name: Example Transport
+caller_mc: "123456"
+load:
+  loaded: true
+  hard_ceiling: 2000
+  context:
+    id: EVAL-1001
+    load_id: EVAL-1001
+    origin: {city: Chicago, state: IL}
+    destination: {city: Indianapolis, state: IN}
+    pickupTime: "October 20th, 2026 at 9 AM"
+    dropoffTime: "October 20th, 2026 at 3 PM"
+    equipment: Dry Van
+    commodity: Packaged goods
+    specialInstructions: Driver must use a tracker
+    trackerRequired: true
+    startRate: 1400
+    bookNowRate: 1700
+    maxRate: 2000

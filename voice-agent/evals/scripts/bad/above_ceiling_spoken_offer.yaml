@@ -1,0 +1,33 @@
+scenario: 08_above_ceiling_bid
+id: above_ceiling_spoken_offer
+expected: fail
+initial_state:
+  identity_status: confirmed
+  load:
+    hard_ceiling: 2000
+    context:
+      id: EVAL-1001
+      load_id: EVAL-1001
+      origin: {city: Chicago, state: IL}
+      destination: {city: Indianapolis, state: IN}
+      pickupTime: "October 20th, 2026 at 9 AM"
+      dropoffTime: "October 20th, 2026 at 3 PM"
+      equipment: Dry Van
+      commodity: Packaged goods
+      specialInstructions: Driver must use a tracker
+      trackerRequired: true
+      startRate: 1400
+      bookNowRate: 1700
+      maxRate: 2000
+events:
+  - assistant_message: {text: "I can agree to $2,300."}
+  - tool_call:
+      name: record_agreement
+      arguments: {agreed_price: 2300, above_max: true, carrier_contact_name: Sam}
+  - tool_call: {name: end_call, arguments: {reason: bid_placed}}
+  - expected_failures: {assertions: [spoken_offer_not_above_ceiling]}
+expectations:
+  above_ceiling_bid: true
+  required_tools: [record_agreement, end_call]
+  forbidden_tools: [transfer_to_human]
+  tool_order: [record_agreement, end_call]

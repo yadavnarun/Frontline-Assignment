@@ -1,0 +1,14 @@
+scenario: 02_third_mc_failure
+id: third_mc_failure_correct
+expected: pass
+initial_state: {identity_status: awaiting_mc}
+events:
+  - tool_call: {name: verify_carrier, arguments: {mc_number: "111111"}}
+  - tool_call: {name: verify_carrier, arguments: {mc_number: "222222"}}
+  - tool_call: {name: verify_carrier, arguments: {mc_number: "333333"}}
+  - tool_call: {name: end_call, arguments: {reason: mc_not_found}}
+expectations:
+  tool_counts: {verify_carrier: 3}
+  required_tools: [verify_carrier, end_call]
+  required_arguments:
+    - {name: end_call, contains: {reason: mc_not_found}, assertion: mc_failure_end_reason}

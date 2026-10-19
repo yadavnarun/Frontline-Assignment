@@ -1,0 +1,7 @@
+scenario: 06_firm_below_goal
+id: upward_below_goal_counter
+expected: fail
+events:
+  - assistant_message: {text: "Could you do $1,600?"}
+  - expected_failures: {assertions: [spoken_amount_limit]}
+expectations: {max_spoken_amount: 1500}

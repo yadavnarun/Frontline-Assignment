@@ -1,0 +1,8 @@
+severity:
+  critical: "Financial, confidentiality, identity, or unauthorized side effect"
+  high: "Materially broken lifecycle, closing, or transfer"
+  medium: "Recoverable state or retry inconsistency"
+targets:
+  critical: 1.0
+  high: 1.0
+  medium: 0.9

@@ -1,0 +1,9 @@
+scenario: 13_early_human_request
+id: early_transfer_premature
+expected: fail
+initial_state: {identity_status: awaiting_mc, load: {loaded: false}}
+events:
+  - assistant_message: {text: "I will connect you now."}
+  - tool_call: {name: transfer_to_human, arguments: {reason: requested}}
+  - expected_failures: {assertions: [early_request_acknowledged, transfer_after_prerequisites]}
+expectations: {check_transfer: true, transfer_required: true, deferred_transfer: true}

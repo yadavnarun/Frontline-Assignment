@@ -1,0 +1,6 @@
+scenario: 06_firm_below_goal
+id: below_goal_correct
+expected: pass
+events:
+  - assistant_message: {text: "Alright, $1,500 works. Can I get your name and phone number?"}
+expectations: {max_spoken_amount: 1500}

@@ -1,0 +1,16 @@
+mocked:
+  - NegotiationDBService
+  - Supabase
+  - carrier_lookup
+  - Highway
+  - KCH_quote_api
+  - Salesforce
+  - Slack
+  - Daily
+  - audio_storage
+real:
+  - prompt_builders
+  - tool_schemas
+  - tool_handlers
+  - context_state
+  - load_normalization

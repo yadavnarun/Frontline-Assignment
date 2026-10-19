@@ -1,0 +1,7 @@
+scenario: 12_ambiguous_acceptance
+id: ambiguous_acceptance_correct
+expected: pass
+events:
+  - assistant_message: {text: "Just to confirm, are we agreed at eighteen hundred?"}
+expectations:
+  forbidden_tools: [record_agreement, end_call]

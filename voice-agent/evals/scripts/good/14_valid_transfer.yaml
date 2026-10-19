@@ -1,0 +1,6 @@
+scenario: 14_valid_human_transfer
+id: valid_transfer_correct
+expected: pass
+events:
+  - tool_call: {name: transfer_to_human, arguments: {reason: requested, load_number: EVAL-1001}}
+expectations: {check_transfer: true, transfer_required: true}

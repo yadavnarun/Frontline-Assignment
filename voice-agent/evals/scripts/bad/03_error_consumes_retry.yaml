@@ -1,0 +1,11 @@
+scenario: 03_carrier_service_error
+id: carrier_error_consumes_retry
+expected: fail
+initial_state: {identity_status: awaiting_mc, mc_not_found_count: 0}
+events:
+  - tool_call: {name: verify_carrier, arguments: {mc_number: "123456"}}
+  - state_update: {mc_not_found_count: 1}
+  - expected_failures: {assertions: ["state:mc_not_found_count"]}
+expectations:
+  required_tools: [verify_carrier]
+  final_state: {mc_not_found_count: 0}

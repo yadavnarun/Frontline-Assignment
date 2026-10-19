@@ -1,0 +1,11 @@
+scenario: 05_load_lookup_prompt_swap
+id: premature_prompt_swap
+expected: fail
+initial_state: {prompt_phase: greeting}
+events:
+  - state_update: {prompt_phase: negotiation}
+  - expected_failures: {assertions: [required_tools]}
+expectations:
+  required_tools: [get_load_context]
+  final_state: {prompt_phase: negotiation}
+  max_load_attempts: 4

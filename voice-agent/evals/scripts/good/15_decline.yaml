@@ -1,0 +1,11 @@
+scenario: 15_ordinary_decline
+id: ordinary_decline_correct
+expected: pass
+events:
+  - assistant_message: {text: "Thanks for your time."}
+  - tool_call: {name: end_call, arguments: {reason: no_agreement}}
+expectations:
+  required_tools: [end_call]
+  forbidden_tools: [record_agreement, transfer_to_human]
+  required_arguments:
+    - {name: end_call, contains: {reason: no_agreement}, assertion: decline_end_reason}

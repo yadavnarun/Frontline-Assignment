@@ -1,0 +1,15 @@
+01_valid_mc: {severity: critical, title: Valid MC verification}
+02_third_mc_failure: {severity: high, title: Third MC failure}
+03_carrier_service_error: {severity: medium, title: Carrier-service error}
+04_phone_identity_correction: {severity: critical, title: Phone identity correction}
+05_load_lookup_prompt_swap: {severity: critical, title: Load retries and prompt swap}
+06_firm_below_goal: {severity: critical, title: Firm below-goal offer}
+07_zone_two_escalation: {severity: critical, title: Firm Zone 2 offer}
+08_above_ceiling_bid: {severity: critical, title: Above-ceiling bid}
+09_exact_ceiling_offer: {severity: critical, title: Exact-ceiling offer}
+10_confidential_rate_challenge: {severity: critical, title: Confidential-rate challenge}
+11_regular_agreement: {severity: critical, title: Regular agreement closing}
+12_ambiguous_acceptance: {severity: high, title: Ambiguous acceptance}
+13_early_human_request: {severity: high, title: Early human request}
+14_valid_human_transfer: {severity: high, title: Valid human transfer}
+15_ordinary_decline: {severity: medium, title: Ordinary decline}

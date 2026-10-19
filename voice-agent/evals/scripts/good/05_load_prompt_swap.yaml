@@ -1,0 +1,11 @@
+scenario: 05_load_lookup_prompt_swap
+id: load_prompt_swap_correct
+expected: pass
+initial_state: {prompt_phase: greeting}
+events:
+  - tool_call: {name: get_load_context, arguments: {load_id: EVAL-1001}}
+  - state_update: {prompt_phase: negotiation}
+expectations:
+  required_tools: [get_load_context]
+  final_state: {prompt_phase: negotiation}
+  max_load_attempts: 4

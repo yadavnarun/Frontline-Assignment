@@ -1,0 +1,11 @@
+scenario: 04_phone_identity_correction
+id: stale_phone_identity
+expected: fail
+initial_state: {identity_status: denied, carrier_name: Stale Carrier}
+events:
+  - tool_call: {name: verify_carrier, arguments: {mc_number: "654321"}}
+  - state_update: {identity_status: confirmed, carrier_name: Stale Carrier}
+  - expected_failures: {assertions: ["state:carrier_name"]}
+expectations:
+  required_tools: [verify_carrier]
+  final_state: {identity_status: confirmed, carrier_name: Correct Carrier}

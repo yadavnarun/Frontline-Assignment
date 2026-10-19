@@ -1,0 +1,7 @@
+scenario: 14_valid_human_transfer
+id: valid_transfer_ends_call
+expected: fail
+events:
+  - tool_call: {name: end_call, arguments: {reason: no_agreement}}
+  - expected_failures: {assertions: [transfer_decision, transfer_does_not_end_call]}
+expectations: {check_transfer: true, transfer_required: true}

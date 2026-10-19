@@ -1,0 +1,9 @@
+scenario: 09_exact_ceiling_offer
+id: exact_ceiling_correct
+expected: pass
+events:
+  - tool_call:
+      name: record_agreement
+      arguments: {agreed_price: 2000, carrier_contact_name: Sam, carrier_contact_phone: "+12025550199"}
+expectations:
+  required_tools: [record_agreement]

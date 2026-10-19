@@ -1,0 +1,10 @@
+scenario: 01_valid_mc
+id: invented_mc_lookup
+expected: fail
+initial_state: {identity_status: awaiting_mc}
+events:
+  - assistant_message: {text: "I found Example Transport. Do you have a reference number?"}
+  - expected_failures: {assertions: [required_tools, "state:identity_status"]}
+expectations:
+  required_tools: [verify_carrier]
+  final_state: {identity_status: confirmed}
